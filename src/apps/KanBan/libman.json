@@ -5,6 +5,10 @@
     {
       "library": "bootstrap@5.2.3",
       "destination": "wwwroot/lib/bootstrap"
+    },
+    {
+      "library": "dragula@3.7.3",
+      "destination": "wwwroot/lib/dragula"
     }
   ]
 }
