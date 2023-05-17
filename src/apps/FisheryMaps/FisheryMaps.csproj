@@ -15,12 +15,29 @@
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.16" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.16" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.16" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\libs\CommonLib\CommonLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Shared\Error.cshtml" />
+      <AdditionalFiles Include="Views\Shared\_Layout.cshtml" />
+      <AdditionalFiles Include="Views\Shared\_LoginPartial.cshtml" />
+      <AdditionalFiles Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="Views\Home\Index.cshtml" />
+		<AdditionalFiles Include="Views\Home\Privacy.cshtml" />
+	</ItemGroup>
+    <ItemGroup>
+      <Folder Include="Views\Fishery\" />
+      <Folder Include="wwwroot\js\" />
     </ItemGroup>
 
 </Project>
