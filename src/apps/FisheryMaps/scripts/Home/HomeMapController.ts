@@ -1,7 +1,10 @@
-
-
+import 'leaflet' ;
+import {doGetRequest, APIRequestResponse} from "../APIHelper.js"
 function updateFisheryMap(){
-    console.log("Hello...");
+    
+    doGetRequest("/apiv1/fisheries/all").then((response) => {
+        console.log(response);
+    });
 }
 
 

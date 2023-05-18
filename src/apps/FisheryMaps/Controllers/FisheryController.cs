@@ -17,7 +17,7 @@ public class FisheryController : Controller
     }
     
     // GET
-    [HttpGet("/api/fisheries/all")]
+    [HttpGet("/apiv1/fisheries/all")]
     public IActionResult All()
     {
         return new JsonResult(_fisheryService.GetAllActiveFisheries());
