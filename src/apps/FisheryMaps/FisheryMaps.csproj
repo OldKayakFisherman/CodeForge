@@ -39,5 +39,8 @@
       <Folder Include="Views\Fishery\" />
       <Folder Include="wwwroot\js\" />
     </ItemGroup>
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\js\scripts\StringUtilities.ts" />
+    </ItemGroup>
 
 </Project>

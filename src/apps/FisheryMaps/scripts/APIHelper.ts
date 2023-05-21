@@ -2,11 +2,13 @@ export class APIRequestResponse {
     success: boolean;
     serverResponse: string;
     error: string ;
+    jsonData: string;
     
     constructor() {
         this.serverResponse = String();
         this.success = false;
         this.error = String();
+        this.jsonData = String();
     }
 }
 
@@ -33,7 +35,7 @@ async function doBaseRequest(verb:string, url:string, payload:string){
     try {
         const response = await fetch(url, {
             method: verb,
-            body: JSON.stringify(payload),
+            body: (payload) ? JSON.stringify(payload): null,
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
@@ -42,7 +44,7 @@ async function doBaseRequest(verb:string, url:string, payload:string){
         
         apiResponse.success = response.ok;
         apiResponse.serverResponse = response.statusText;
-
+        apiResponse.jsonData = await response.json();
     }
     catch (error: any) {
 
