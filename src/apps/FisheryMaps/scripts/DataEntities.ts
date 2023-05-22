@@ -1,12 +1,12 @@
 
 export class FisheryMapData {
-    home: String
+    name: string
     latitude: number
     longitude: number
     active: boolean
 
     constructor() {
-        this.home = String();
+        this.name = String();
         this.latitude = 0.0;
         this.longitude = 0.0
         this.active = false

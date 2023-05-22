@@ -14991,6 +14991,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var HomeMapController = /** @class */ (function () {
     function HomeMapController() {
+        this.mapsPlaceholder = [];
     }
     HomeMapController.prototype.UpdateFisheryMap = function () {
         var _this = this;
@@ -15002,6 +15003,7 @@ var HomeMapController = /** @class */ (function () {
         });
     };
     HomeMapController.prototype.FillAndFomatMapData = function (mapPoints) {
+        var _this = this;
         //39.828175 -98.5795
         var map = new leaflet__WEBPACK_IMPORTED_MODULE_0__.Map('homeMap', {
             center: new leaflet__WEBPACK_IMPORTED_MODULE_0__.LatLng(39.828175, -98.5795),
@@ -15011,6 +15013,33 @@ var HomeMapController = /** @class */ (function () {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+        if (mapPoints.length > 0) {
+            mapPoints.forEach(function (mapPoint) {
+                var coordinates = new leaflet__WEBPACK_IMPORTED_MODULE_0__.LatLng(mapPoint.latitude, mapPoint.longitude);
+                var cr = new leaflet__WEBPACK_IMPORTED_MODULE_0__.Circle(coordinates, {
+                    color: 'blue',
+                    fillColor: '#3486eb',
+                    fillOpacity: 0.3,
+                    radius: 200
+                });
+                var mapPointContent = document.createElement('div');
+                mapPointContent.textContent = mapPoint.name;
+                cr.on('click', function (ev) {
+                    _this.CenterAndZoomMap(ev.latlng, 12);
+                });
+                cr.bindPopup(mapPointContent);
+                cr.addTo(map);
+            });
+        }
+        this.mapsPlaceholder.push(map);
+    };
+    HomeMapController.prototype.CenterAndZoomMap = function (coordinates, zoomLevel) {
+        if (this.mapsPlaceholder.length > 0) {
+            // @ts-ignore
+            var map = this.mapsPlaceholder.pop();
+            map.flyTo(coordinates, zoomLevel);
+            this.mapsPlaceholder.push(map);
+        }
     };
     return HomeMapController;
 }());

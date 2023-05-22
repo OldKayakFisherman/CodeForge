@@ -43,7 +43,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var FisheryMapData = /** @class */ (function () {
     function FisheryMapData() {
-        this.home = String();
+        this.name = String();
         this.latitude = 0.0;
         this.longitude = 0.0;
         this.active = false;

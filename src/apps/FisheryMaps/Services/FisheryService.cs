@@ -65,7 +65,7 @@ public class FisheryService
         //39.559366, -121.457063 - Lake Oroville
         displayModels.Add(new FisheryServiceDisplayModel()
         {
-            Name = "39.559366",
+            Name = "Lake Oroville",
             Latitude = 39.559366,
             Longitude = -121.457063,
             Active = true
