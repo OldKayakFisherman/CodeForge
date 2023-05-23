@@ -22,4 +22,10 @@ public class FisheryController : Controller
     {
         return new JsonResult(_fisheryService.GetAllActiveFisheries());
     }
+
+    [HttpGet]
+    public IActionResult Detail([FromQuery] string fisheryNonce)
+    {
+        return new EmptyResult();
+    }
 }
