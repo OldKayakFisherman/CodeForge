@@ -17,4 +17,5 @@ body {
   margin-bottom: 60px;
 }
 
-#homeMap { height: 180px; }
+.smallHomeMap { height: 180px; }
+.expandedHomeMap { height: 480px; }

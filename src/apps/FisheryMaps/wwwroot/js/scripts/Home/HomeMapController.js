@@ -14992,7 +14992,19 @@ __webpack_require__.r(__webpack_exports__);
 var HomeMapController = /** @class */ (function () {
     function HomeMapController() {
         this.mapsPlaceholder = [];
+        this.WirePageEvents();
+        this.UpdateFisheryMap();
     }
+    HomeMapController.prototype.WirePageEvents = function () {
+        var _this = this;
+        //Wire Map toggle link 
+        var toggleMapAnchor = document.getElementById("lnkToggleMapSize");
+        if (toggleMapAnchor) {
+            toggleMapAnchor.addEventListener("click", function () {
+                _this.ToggleMapSize();
+            });
+        }
+    };
     HomeMapController.prototype.UpdateFisheryMap = function () {
         var _this = this;
         (0,_APIHelper__WEBPACK_IMPORTED_MODULE_1__.doGetRequest)("/apiv1/fisheries/all").then(function (response) {
@@ -15001,6 +15013,24 @@ var HomeMapController = /** @class */ (function () {
                 _this.FillAndFomatMapData(mapPoints);
             }
         });
+    };
+    HomeMapController.prototype.ToggleMapSize = function () {
+        var toggleMapAnchor = document.getElementById("lnkToggleMapSize");
+        var homeMap = document.getElementById("homeMap");
+        if (toggleMapAnchor.textContent == "Expand Map") {
+            homeMap.classList.remove("smallHomeMap");
+            homeMap.classList.add("expandedHomeMap");
+            toggleMapAnchor.textContent = "Collapse Map";
+        }
+        else {
+            homeMap.classList.remove("expandedHomeMap");
+            homeMap.classList.add("smallHomeMap");
+            toggleMapAnchor.textContent = "Expand Map";
+        }
+        // @ts-ignore
+        var map = this.mapsPlaceholder.pop();
+        map.invalidateSize();
+        this.mapsPlaceholder.push(map);
     };
     HomeMapController.prototype.FillAndFomatMapData = function (mapPoints) {
         var _this = this;
@@ -15044,8 +15074,7 @@ var HomeMapController = /** @class */ (function () {
     return HomeMapController;
 }());
 window.onload = function () {
-    var controller = new HomeMapController();
-    controller.UpdateFisheryMap();
+    new HomeMapController();
 };
 
 })();

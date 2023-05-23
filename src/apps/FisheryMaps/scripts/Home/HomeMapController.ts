@@ -5,6 +5,24 @@ import {FisheryMapData} from "../DataEntities"
 class HomeMapController {
 
     mapsPlaceholder: Array<Map> = [];
+    
+    constructor() {
+        this.WirePageEvents();
+        this.UpdateFisheryMap();
+    }
+    
+    WirePageEvents(){
+        
+        //Wire Map toggle link 
+        let toggleMapAnchor: HTMLAnchorElement = document.getElementById("lnkToggleMapSize") as HTMLAnchorElement;
+        
+        if(toggleMapAnchor) {
+            toggleMapAnchor.addEventListener("click", () => {
+                this.ToggleMapSize();
+            })
+        }
+    }
+    
     UpdateFisheryMap() {
 
         doGetRequest("/apiv1/fisheries/all").then((response) => {
@@ -15,6 +33,28 @@ class HomeMapController {
         });
     }
     
+    ToggleMapSize(){
+        let toggleMapAnchor: HTMLAnchorElement = document.getElementById("lnkToggleMapSize") as HTMLAnchorElement;
+        let homeMap: HTMLDivElement = document.getElementById("homeMap") as HTMLDivElement;
+        
+        if(toggleMapAnchor.textContent == "Expand Map"){
+            homeMap.classList.remove("smallHomeMap");
+            homeMap.classList.add("expandedHomeMap");
+            toggleMapAnchor.textContent = "Collapse Map";
+        }
+        else
+        {
+            homeMap.classList.remove("expandedHomeMap");
+            homeMap.classList.add("smallHomeMap");
+            toggleMapAnchor.textContent = "Expand Map";
+        }
+        
+        // @ts-ignore
+        let map: Map = this.mapsPlaceholder.pop();
+        map.invalidateSize();
+        this.mapsPlaceholder.push(map);
+        
+    }
     FillAndFomatMapData(mapPoints: Array<FisheryMapData>) {
         
         //39.828175 -98.5795
@@ -68,6 +108,5 @@ class HomeMapController {
 }
 
 window.onload = () => {
-    let controller = new HomeMapController();
-    controller.UpdateFisheryMap();
+    new HomeMapController();
 }
