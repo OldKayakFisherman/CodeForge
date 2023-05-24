@@ -91,4 +91,10 @@ public class FisheryService
         return displayModels;
 
     }
+
+    public FisheryServiceDisplayModel? GetFishery(string nonce)
+    {
+        //TODO - Plug this into a real database pull when the time comes
+        return GetAllActiveFisheries().FirstOrDefault(x => x.Nonce == nonce);
+    }
 }
