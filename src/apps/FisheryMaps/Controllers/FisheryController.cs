@@ -24,13 +24,10 @@ public class FisheryController : Controller
     }
 
     [HttpGet]
-    public IActionResult Detail([FromQuery] string fisheryNonce)
+    public IActionResult Detail(string fisheryNonce)
     {
         FisheryServiceDisplayModel? model = _fisheryService.GetFishery(fisheryNonce);
         
-        
-        
-        
-        return new EmptyResult();
+        return View();
     }
 }

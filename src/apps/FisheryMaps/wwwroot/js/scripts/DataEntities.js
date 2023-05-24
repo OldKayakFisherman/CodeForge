@@ -47,6 +47,7 @@ var FisheryMapData = /** @class */ (function () {
         this.latitude = 0.0;
         this.longitude = 0.0;
         this.active = false;
+        this.nonce = String();
     }
     return FisheryMapData;
 }());

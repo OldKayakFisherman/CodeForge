@@ -81,7 +81,12 @@ class HomeMapController {
                  });
                  
                  let mapPointContent: HTMLDivElement = document.createElement('div') as HTMLDivElement; 
-                 mapPointContent.textContent = mapPoint.name;
+                 let mapPointAnchor: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+                 
+                 mapPointAnchor.textContent = mapPoint.name;
+                 mapPointAnchor.href = `/Fishery/Detail/${mapPoint.nonce}`
+                 
+                 mapPointContent.appendChild(mapPointAnchor);
                  
                  cr.on('click', (ev: LeafletMouseEvent) =>{
                      this.CenterAndZoomMap(ev.latlng, 12);
