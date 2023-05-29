@@ -19,3 +19,4 @@ body {
 
 .smallHomeMap { height: 180px; }
 .expandedHomeMap { height: 480px; }
+.smallDetailMap { height: 380px; width: 100%;}

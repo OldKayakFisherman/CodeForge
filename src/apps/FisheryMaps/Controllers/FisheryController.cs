@@ -23,11 +23,20 @@ public class FisheryController : Controller
         return new JsonResult(_fisheryService.GetAllActiveFisheries());
     }
 
-    [HttpGet]
+    //Get
+    [HttpGet("/apiv1/fisheries/fishery/{fisheryNonce}")]  
+    public IActionResult GetFishery(string fisheryNonce)
+    {
+        FisheryServiceDisplayModel? model = _fisheryService.GetFishery(fisheryNonce);
+        
+        return new JsonResult(_fisheryService.GetFishery(fisheryNonce));
+    }
+    
+    [Route("/Fishery/Detail/{fisheryNonce}")]
     public IActionResult Detail(string fisheryNonce)
     {
         FisheryServiceDisplayModel? model = _fisheryService.GetFishery(fisheryNonce);
         
-        return View();
+        return View(model);
     }
 }

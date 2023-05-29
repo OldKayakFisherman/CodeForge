@@ -1,5 +1,5 @@
 
-export class FisheryMapData {
+export class FisheryData {
     name: string
     latitude: number
     longitude: number

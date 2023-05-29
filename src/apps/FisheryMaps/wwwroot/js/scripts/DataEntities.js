@@ -39,17 +39,17 @@ var __webpack_exports__ = {};
   \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FisheryMapData: () => (/* binding */ FisheryMapData)
+/* harmony export */   FisheryData: () => (/* binding */ FisheryData)
 /* harmony export */ });
-var FisheryMapData = /** @class */ (function () {
-    function FisheryMapData() {
+var FisheryData = /** @class */ (function () {
+    function FisheryData() {
         this.name = String();
         this.latitude = 0.0;
         this.longitude = 0.0;
         this.active = false;
         this.nonce = String();
     }
-    return FisheryMapData;
+    return FisheryData;
 }());
 
 

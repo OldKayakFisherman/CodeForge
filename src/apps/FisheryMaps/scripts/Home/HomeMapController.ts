@@ -1,6 +1,6 @@
 import {Map, LatLng, TileLayer, Marker, Circle, LeafletMouseEvent} from 'leaflet' ;
 import {doGetRequest, APIRequestResponse} from "../APIHelper"
-import {FisheryMapData} from "../DataEntities"
+import {FisheryData} from "../DataEntities"
 
 class HomeMapController {
 
@@ -27,8 +27,8 @@ class HomeMapController {
 
         doGetRequest("/apiv1/fisheries/all").then((response) => {
             if(response.success) {
-                let mapPoints: Array<FisheryMapData> = Object.assign(new Array<FisheryMapData>(), response.jsonData)
-                this.FillAndFomatMapData(mapPoints)
+                let mapPoints: Array<FisheryData> = Object.assign(new Array<FisheryData>(), response.jsonData);
+                this.FillAndFomatMapData(mapPoints);
             }    
         });
     }
@@ -55,7 +55,7 @@ class HomeMapController {
         this.mapsPlaceholder.push(map);
         
     }
-    FillAndFomatMapData(mapPoints: Array<FisheryMapData>) {
+    FillAndFomatMapData(mapPoints: Array<FisheryData>) {
         
         //39.828175 -98.5795
         let map = new Map('homeMap', {
