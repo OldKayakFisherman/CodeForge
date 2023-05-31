@@ -15108,7 +15108,7 @@ var FisheryDetailController = /** @class */ (function () {
             var fishery = this.fisheryPlaceholder.pop();
             var map = new leaflet__WEBPACK_IMPORTED_MODULE_1__.Map('detailMap', {
                 center: new leaflet__WEBPACK_IMPORTED_MODULE_1__.LatLng(fishery.latitude, fishery.longitude),
-                zoom: 12,
+                zoom: 14,
             });
             new leaflet__WEBPACK_IMPORTED_MODULE_1__.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,

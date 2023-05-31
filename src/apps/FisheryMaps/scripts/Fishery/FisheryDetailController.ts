@@ -42,7 +42,7 @@ class FisheryDetailController
             
             let map = new Map('detailMap', {
                 center: new LatLng(fishery.latitude, fishery.longitude),
-                zoom: 12,
+                zoom: 14,
             });
 
             new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

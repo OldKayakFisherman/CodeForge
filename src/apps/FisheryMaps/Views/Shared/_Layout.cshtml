@@ -38,6 +38,11 @@
     </main>
 </div>
 
+@if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+{
+    <partial name="DevelopmentFooter"/>
+}
+
 <footer class="border-top footer text-muted">
     <div class="container">
         &copy; 2023 - FisheryMaps - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
