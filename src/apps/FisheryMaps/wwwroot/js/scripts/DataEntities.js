@@ -39,7 +39,9 @@ var __webpack_exports__ = {};
   \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FisheryData: () => (/* binding */ FisheryData)
+/* harmony export */   FisheryData: () => (/* binding */ FisheryData),
+/* harmony export */   HotSpot: () => (/* binding */ HotSpot),
+/* harmony export */   MapPoint: () => (/* binding */ MapPoint)
 /* harmony export */ });
 var FisheryData = /** @class */ (function () {
     function FisheryData() {
@@ -48,8 +50,27 @@ var FisheryData = /** @class */ (function () {
         this.longitude = 0.0;
         this.active = false;
         this.nonce = String();
+        this.hotspots = [];
     }
     return FisheryData;
+}());
+
+var MapPoint = /** @class */ (function () {
+    function MapPoint() {
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+    return MapPoint;
+}());
+
+var HotSpot = /** @class */ (function () {
+    function HotSpot() {
+        this.species = String();
+        this.season = String();
+        this.technique = [];
+        this.coordinates = [];
+    }
+    return HotSpot;
 }());
 
 

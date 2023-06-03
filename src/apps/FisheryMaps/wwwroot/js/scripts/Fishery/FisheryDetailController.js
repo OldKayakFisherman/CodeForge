@@ -14644,7 +14644,9 @@ function doBaseRequest(verb, url, payload) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FisheryData: () => (/* binding */ FisheryData)
+/* harmony export */   FisheryData: () => (/* binding */ FisheryData),
+/* harmony export */   HotSpot: () => (/* binding */ HotSpot),
+/* harmony export */   MapPoint: () => (/* binding */ MapPoint)
 /* harmony export */ });
 var FisheryData = /** @class */ (function () {
     function FisheryData() {
@@ -14653,8 +14655,27 @@ var FisheryData = /** @class */ (function () {
         this.longitude = 0.0;
         this.active = false;
         this.nonce = String();
+        this.hotspots = [];
     }
     return FisheryData;
+}());
+
+var MapPoint = /** @class */ (function () {
+    function MapPoint() {
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+    return MapPoint;
+}());
+
+var HotSpot = /** @class */ (function () {
+    function HotSpot() {
+        this.species = String();
+        this.season = String();
+        this.technique = [];
+        this.coordinates = [];
+    }
+    return HotSpot;
 }());
 
 
@@ -15104,7 +15125,6 @@ var FisheryDetailController = /** @class */ (function () {
     };
     FisheryDetailController.prototype.FormatMap = function () {
         if (this.fisheryPlaceholder.length > 0) {
-            console.log("Formatting map ...");
             var fishery = this.fisheryPlaceholder.pop();
             var map = new leaflet__WEBPACK_IMPORTED_MODULE_1__.Map('detailMap', {
                 center: new leaflet__WEBPACK_IMPORTED_MODULE_1__.LatLng(fishery.latitude, fishery.longitude),
@@ -15114,6 +15134,16 @@ var FisheryDetailController = /** @class */ (function () {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
+            if (fishery.hotspots.length > 0) {
+                for (var i = 0; i < fishery.hotspots.length; i++) {
+                    var hotspot = fishery.hotspots[i];
+                    var mapCoordinates = hotspot.coordinates.map(function (_a) {
+                        var latitude = _a.latitude, longitude = _a.longitude;
+                        return new leaflet__WEBPACK_IMPORTED_MODULE_1__.LatLng(latitude, longitude);
+                    });
+                    new leaflet__WEBPACK_IMPORTED_MODULE_1__.Polygon(mapCoordinates).addTo(map);
+                }
+            }
             this.mapsPlaceholder.push(map);
             this.fisheryPlaceholder.push(fishery);
         }

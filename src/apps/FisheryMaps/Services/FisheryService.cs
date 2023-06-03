@@ -9,7 +9,20 @@ public class FisheryServiceDisplayModel
     public double Longitude { get; set; }
     public bool Active { get; set; }
     public string Nonce { get; set; }
+
+    public ICollection<FisheryHotspotDisplayModel> Hotspots { get; set; } = new List<FisheryHotspotDisplayModel>();
 }
+
+public class FisheryHotspotDisplayModel
+{
+    public string Species { get; set; }
+    public string Season { get; set; }
+
+    public ICollection<MapPoint> Coordinates { get; set; } = new List<MapPoint>();
+    public ICollection<String> Techniques { get; set; } = new List<string>();
+
+}
+
 
 public class FisheryService
 {
@@ -27,6 +40,74 @@ public class FisheryService
             Active = true,
             Nonce = "n7Rb6ePrGR9zQ"
         });
+        
+        displayModels[0].Hotspots.Add(new FisheryHotspotDisplayModel()
+        {
+            Species = "Bass",
+            Season = "Spring",
+            Coordinates = new List<MapPoint>()
+                {
+                    new MapPoint(){Latitude = 38.757786, Longitude = -77.293923},
+                    new MapPoint(){Latitude = 38.758264, Longitude = -77.294792},
+                    new MapPoint(){Latitude = 38.757538, Longitude = -77.295018},
+                    new MapPoint(){Latitude = 38.757211, Longitude = -77.294535}
+                },
+            Techniques = new List<string>()
+            {
+                "Speed Worm",
+                "Swim Jig",
+                "Tokyo Rig",
+                "Soft Plastic JerkBait"
+            }
+        });
+        
+        displayModels[0].Hotspots.Add(new FisheryHotspotDisplayModel()
+        {
+            Species = "Bass",
+            Season = "Spring",
+            Coordinates = new List<MapPoint>()
+            {
+                new MapPoint(){Latitude = 38.760759, Longitude = -77.295929},
+                new MapPoint(){Latitude = 38.761118, Longitude = -77.296552},
+                new MapPoint(){Latitude = 38.760733, Longitude = -77.296949},
+                new MapPoint(){Latitude = 38.760332, Longitude = -77.296562}
+            },
+            Techniques = new List<string>()
+            {
+                "Speed Worm",
+                "Swim Jig",
+                "Tokyo Rig",
+                "Soft Plastic JerkBait",
+                "Neko Rig",
+                "Shallow CrankBaits",
+                "Wacky Rig"
+            }
+            
+        });
+        
+        displayModels[0].Hotspots.Add(new FisheryHotspotDisplayModel()
+        {
+            Species = "Bass",
+            Season = "Spring",
+            Coordinates = new List<MapPoint>()
+            {
+                new MapPoint(){Latitude = 38.763636, Longitude = -77.297893},
+                new MapPoint(){Latitude = 38.763410, Longitude = -77.298665},
+                new MapPoint(){Latitude = 38.762934, Longitude = -77.298537},
+                new MapPoint(){Latitude = 38.762925, Longitude = -77.297485}
+            },
+            Techniques = new List<string>()
+            {
+                "Speed Worm",
+                "Swim Jig",
+                "Tokyo Rig",
+                "Soft Plastic JerkBait",
+                "Neko Rig",
+                "Shallow CrankBaits"
+            }
+            
+        });
+        
         
         //38.742006, -77.387581 - Bull Run
         displayModels.Add(new FisheryServiceDisplayModel()

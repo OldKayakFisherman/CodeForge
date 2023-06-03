@@ -1,5 +1,5 @@
 import {FisheryData} from "../DataEntities";
-import {LatLng, Map, TileLayer} from "leaflet";
+import {LatLng, Map, Polygon, TileLayer} from "leaflet";
 import {doGetRequest} from "../APIHelper"
 class FisheryDetailController
 {
@@ -36,9 +36,9 @@ class FisheryDetailController
     FormatMap(){
         if(this.fisheryPlaceholder.length > 0)
         {
-            console.log("Formatting map ...");
             
             let fishery: FisheryData = this.fisheryPlaceholder.pop() as FisheryData;
+            
             
             let map = new Map('detailMap', {
                 center: new LatLng(fishery.latitude, fishery.longitude),
@@ -50,7 +50,25 @@ class FisheryDetailController
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-
+            if(fishery.hotspots.length > 0)
+            {
+                for (let i = 0;i<fishery.hotspots.length; i++)
+                {
+                    let hotspot = fishery.hotspots[i];
+                    let mapCoordinates = 
+                        hotspot.coordinates.map(({
+                            latitude,
+                            longitude
+                        }) => {
+                        return new LatLng( latitude, longitude);
+                    });
+                    
+                    new Polygon(mapCoordinates).addTo(map);
+                    
+                }
+            }
+            
+            
             this.mapsPlaceholder.push(map);
             this.fisheryPlaceholder.push(fishery);
         }

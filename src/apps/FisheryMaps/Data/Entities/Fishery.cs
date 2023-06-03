@@ -13,4 +13,6 @@ public class Fishery
     public double CenterPointLongitude { get; set; }
     public bool Active { get; set; }
     public string Nonce { get; set; }
+
+    public ICollection<HotSpot> HotSpots { get; set; }
 }
