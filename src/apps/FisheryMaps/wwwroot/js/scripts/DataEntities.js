@@ -67,7 +67,7 @@ var HotSpot = /** @class */ (function () {
     function HotSpot() {
         this.species = String();
         this.season = String();
-        this.technique = [];
+        this.techniques = [];
         this.coordinates = [];
     }
     return HotSpot;

@@ -63,7 +63,16 @@ class FisheryDetailController
                         return new LatLng( latitude, longitude);
                     });
                     
-                    new Polygon(mapCoordinates).addTo(map);
+                    let hotspotArea = new Polygon(mapCoordinates).addTo(map);
+                    let techniqueList: HTMLUListElement = document.createElement("ul") as HTMLUListElement;
+                    
+                    for (let i = 0; i<hotspot.techniques.length; i++){
+                        let liItem: HTMLLIElement = document.createElement("li") as HTMLLIElement;
+                        liItem.textContent = hotspot.techniques[i];
+                        techniqueList.appendChild(liItem);
+                    }
+                    
+                    hotspotArea.bindPopup(techniqueList);
                     
                 }
             }

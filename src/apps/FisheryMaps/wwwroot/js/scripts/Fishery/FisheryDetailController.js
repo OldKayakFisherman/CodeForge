@@ -14672,7 +14672,7 @@ var HotSpot = /** @class */ (function () {
     function HotSpot() {
         this.species = String();
         this.season = String();
-        this.technique = [];
+        this.techniques = [];
         this.coordinates = [];
     }
     return HotSpot;
@@ -15141,7 +15141,14 @@ var FisheryDetailController = /** @class */ (function () {
                         var latitude = _a.latitude, longitude = _a.longitude;
                         return new leaflet__WEBPACK_IMPORTED_MODULE_1__.LatLng(latitude, longitude);
                     });
-                    new leaflet__WEBPACK_IMPORTED_MODULE_1__.Polygon(mapCoordinates).addTo(map);
+                    var hotspotArea = new leaflet__WEBPACK_IMPORTED_MODULE_1__.Polygon(mapCoordinates).addTo(map);
+                    var techniqueList = document.createElement("ul");
+                    for (var i_1 = 0; i_1 < hotspot.techniques.length; i_1++) {
+                        var liItem = document.createElement("li");
+                        liItem.textContent = hotspot.techniques[i_1];
+                        techniqueList.appendChild(liItem);
+                    }
+                    hotspotArea.bindPopup(techniqueList);
                 }
             }
             this.mapsPlaceholder.push(map);

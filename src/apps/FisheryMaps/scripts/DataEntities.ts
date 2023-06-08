@@ -32,13 +32,13 @@ export class HotSpot
 {
     species: string
     season: string
-    technique: string[]
+    techniques: string[]
     coordinates: MapPoint[]
     
     constructor() {
         this.species = String()
         this.season = String()
-        this.technique = []
+        this.techniques = []
         this.coordinates = []
     }
 }
