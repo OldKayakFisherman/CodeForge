@@ -64,7 +64,12 @@ class FisheryDetailController
                     });
                     
                     let hotspotArea = new Polygon(mapCoordinates).addTo(map);
+                    
+                    let techniqueDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
+                    let techniqueH5: HTMLHeadingElement = document.createElement("h5") as HTMLHeadingElement;
                     let techniqueList: HTMLUListElement = document.createElement("ul") as HTMLUListElement;
+                    
+                   
                     
                     for (let i = 0; i<hotspot.techniques.length; i++){
                         let liItem: HTMLLIElement = document.createElement("li") as HTMLLIElement;
@@ -72,7 +77,12 @@ class FisheryDetailController
                         techniqueList.appendChild(liItem);
                     }
                     
-                    hotspotArea.bindPopup(techniqueList);
+                    techniqueH5.textContent = "Best Techniques";
+                    
+                    techniqueDiv.appendChild(techniqueH5);
+                    techniqueDiv.appendChild(techniqueList);
+                    
+                    hotspotArea.bindPopup(techniqueDiv);
                     
                 }
             }

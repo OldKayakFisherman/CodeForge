@@ -15142,13 +15142,18 @@ var FisheryDetailController = /** @class */ (function () {
                         return new leaflet__WEBPACK_IMPORTED_MODULE_1__.LatLng(latitude, longitude);
                     });
                     var hotspotArea = new leaflet__WEBPACK_IMPORTED_MODULE_1__.Polygon(mapCoordinates).addTo(map);
+                    var techniqueDiv = document.createElement("div");
+                    var techniqueH5 = document.createElement("h5");
                     var techniqueList = document.createElement("ul");
                     for (var i_1 = 0; i_1 < hotspot.techniques.length; i_1++) {
                         var liItem = document.createElement("li");
                         liItem.textContent = hotspot.techniques[i_1];
                         techniqueList.appendChild(liItem);
                     }
-                    hotspotArea.bindPopup(techniqueList);
+                    techniqueH5.textContent = "Best Techniques";
+                    techniqueDiv.appendChild(techniqueH5);
+                    techniqueDiv.appendChild(techniqueList);
+                    hotspotArea.bindPopup(techniqueDiv);
                 }
             }
             this.mapsPlaceholder.push(map);
