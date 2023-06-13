@@ -83,7 +83,7 @@ class FisheryDetailController
                     techniqueDiv.appendChild(techniqueList);
                     
                     hotspotArea.bindPopup(techniqueDiv);
-                    
+                    hotspotArea.setStyle({color:"red", weight:2})
                 }
             }
             

@@ -15154,6 +15154,7 @@ var FisheryDetailController = /** @class */ (function () {
                     techniqueDiv.appendChild(techniqueH5);
                     techniqueDiv.appendChild(techniqueList);
                     hotspotArea.bindPopup(techniqueDiv);
+                    hotspotArea.setStyle({ color: "red", weight: 2 });
                 }
             }
             this.mapsPlaceholder.push(map);
