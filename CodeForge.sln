@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utilities", "utilities", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonceConsoleGenerator", "src\utilities\NonceConsoleGenerator\NonceConsoleGenerator.csproj", "{7788A7AD-9CB0-4EAC-891B-8A9A057A9003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palaver", "src\apps\Palaver\Palaver.csproj", "{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{70EB5165-0A21-4032-AC71-6C317D500BCB} = {18DD8AAE-F8EB-4AAD-B5E4-EFFF0228B31C}
 		{9176A6B7-375C-4A64-918E-575B1D356EFE} = {C2F979B4-494F-456F-9E3A-86FD019526CB}
 		{7788A7AD-9CB0-4EAC-891B-8A9A057A9003} = {9176A6B7-375C-4A64-918E-575B1D356EFE}
+		{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05} = {98CB913B-8587-499F-958F-850EC8BCA173}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{877AFEA6-4F9E-423A-8AFD-4DC0B171070D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -70,5 +73,9 @@ Global
 		{7788A7AD-9CB0-4EAC-891B-8A9A057A9003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7788A7AD-9CB0-4EAC-891B-8A9A057A9003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7788A7AD-9CB0-4EAC-891B-8A9A057A9003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC5118D-85C8-4DE7-BB61-7D63E9DC1B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
