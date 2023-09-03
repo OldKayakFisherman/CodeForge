@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SystemBuddy.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SystemBuddy.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SystemBuddy">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File"></MenuItem>
+            </Menu>
+        </DockPanel>
+        
+        <SplitView Grid.Row="1" IsPaneOpen="True" DisplayMode="Inline">
+            <SplitView.Pane>
+                <TreeView
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    ItemsSource="{Binding Items}"
+                    Width="200">
+                   <TreeView.ItemTemplate>
+                       <TreeDataTemplate ItemsSource="{Binding Children}">
+                           <TextBlock Text="{Binding Category}"/>
+                       </TreeDataTemplate>
+                   </TreeView.ItemTemplate>
+                </TreeView>    
+            </SplitView.Pane>
+            <Grid>
+                <TextBlock Text="Content"
+                           FontSize="24"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+            </Grid>
+        </SplitView>      
+        <WrapPanel Grid.Row="2">
+            <TextBlock Text="This is Status Text"></TextBlock>
+        </WrapPanel>
+        
+    </Grid>
+    
+  
+</Window>

@@ -39,4 +39,6 @@ public class FisheryController : Controller
         
         return View(model);
     }
+    
+    [Route("/")]
 }
